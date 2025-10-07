@@ -1,9 +1,26 @@
-import React from "react";
+
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Navigate, Routes, Link } from "react-router";
 import HomePage from "./pages/homePage";
 import MoviePage from "./pages/movieDetailsPage";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
+import React from "react";
+import { useLocation } from "react-router";
+import PageTemplate from "../src/components/templateMoviePage";
+import MovieReview from "../src/components/movieReview";
+
+const MovieReviewPage = (props) => {
+  let location = useLocation();
+  const {movie, review} = location.state;
+  
+  return (
+    <PageTemplate movie={movie}>
+      <MovieReview review={review} />
+    </PageTemplate>
+  );
+};
+
+export default MovieReviewPage;
 
 const App = () => {
   return (
@@ -20,6 +37,7 @@ const App = () => {
         <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
         <Route path="/movies/:id" element={<MoviePage />} />
         <Route path="/" element={<HomePage />} />
+        <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
         <Route path="*" element={ <Navigate to="/" /> } />
       </Routes>
     </BrowserRouter>
