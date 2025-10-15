@@ -8,13 +8,13 @@ import IconButton from "@mui/material/IconButton";
 const AddToPlaylistIcon = ({ movie }) => {
   const context = useContext(MoviesContext);
 
-  const handleAddToPlaylist = (e) => {
+  const handleAddToWatch = (e) => {
     e.preventDefault();
-    context.addToPlaylist(movie);
+    context.addToMustWatch(movie);
   };
 
   return (
-    <IconButton aria-label="add to playlist" onClick={handleAddToPlaylist}>
+    <IconButton aria-label="add to must watch" onClick={handleAddToWatch}>
       <PlaylistAddIcon color="primary" fontSize="large" />
     </IconButton>
   );
