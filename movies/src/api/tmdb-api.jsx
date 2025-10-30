@@ -102,6 +102,22 @@ export const getUpcomingMovies = () => {
       throw error
   });
 };
+export const getTrendingMoviesWeek = () => {
+  return fetch(
+    `https://api.themoviedb.org/3/trending/movie/week?api_key=${import.meta.env.VITE_TMDB_KEY}`
+  )
+    .then(async (response) => {
+      if (!response.ok) {
+        const error = await response.json().catch(() => ({}));
+        throw new Error(error.status_message || "Something went wrong");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      throw error;
+    });
+};
+
 
 export const getUpcomingMovie = (args) => {
   //console.log(args)
