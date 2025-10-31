@@ -54,15 +54,22 @@ export default function FilterMoviesCard(props) {
   };
 
   return (
-    <Card 
-      sx={{
-        backgroundColor: "rgb(204, 204, 0)"
-      }} 
-      variant="outlined">
+    <Card
+  sx={{
+    borderRadius: 3,
+    boxShadow: 2,
+    transition: "all 0.25s ease-in-out",
+    cursor: "pointer",
+    "&:hover": {
+      transform: "translateY(-6px)",
+      boxShadow: 6,
+    },
+  }}
+>
       <CardContent>
         <Typography variant="h5" component="h1">
-          <SearchIcon fontSize="large" />
-          Filter the movies.
+          <SearchIcon fontSize="primary" />
+          Filter the movies
         </Typography>
           <TextField
       sx={{...formControl}}
@@ -98,13 +105,6 @@ export default function FilterMoviesCard(props) {
         image={img}
         title="Filter"
       />
-      <CardContent>
-        <Typography variant="h5" component="h1">
-          <SearchIcon fontSize="large" />
-          Filter the movies.
-          <br />
-        </Typography>
-      </CardContent>
     </Card>
   );
 }
