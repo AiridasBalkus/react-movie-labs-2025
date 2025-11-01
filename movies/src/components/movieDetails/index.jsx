@@ -109,7 +109,6 @@ const { data: credits, isPending: creditsPending, isError: creditsError, error: 
       ))}
     </Stack>
   </Paper>
-);
   <Fab
       color="secondary"
       variant="extended"

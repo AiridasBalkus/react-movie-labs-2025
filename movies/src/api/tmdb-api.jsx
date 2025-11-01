@@ -195,4 +195,3 @@ export const getPersonMovieCredits = ({ queryKey }) => {
     throw error
  });
 };
-//End of tmdb-api.jsx
