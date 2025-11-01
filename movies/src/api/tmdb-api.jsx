@@ -18,7 +18,6 @@ export const getMovies = () => {
 };
 // Get details of a movie
 export const getMovie = (args) => {
-  //console.log(args)
   const [, idPart] = args.queryKey;
   const { id } = idPart;
   return fetch(
@@ -124,7 +123,6 @@ export const getTrendingMoviesWeek = () => {
 };
 // Get details of an upcoming movie
 export const getUpcomingMovie = (args) => {
-  //console.log(args)
   const [, idPart] = args.queryKey;
   const { id } = idPart;
   return fetch(
@@ -194,4 +192,15 @@ export const getPersonMovieCredits = ({ queryKey }) => {
   .catch((error) => {
     throw error
  });
+};
+
+export const searchMovies = async ({ queryKey }) => {
+  const [_key, { query }] = queryKey;
+  const response = await fetch(
+    `https://api.themoviedb.org/3/search/movie?api_key=${
+      import.meta.env.VITE_TMDB_KEY
+    }&query=${encodeURIComponent(query)}`
+  );
+  if (!response.ok) throw new Error("Failed to fetch search results");
+  return response.json();
 };

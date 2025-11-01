@@ -11,6 +11,7 @@ import { useNavigate } from "react-router";
 import { styled } from '@mui/material/styles';
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { Link } from "react-router";
 
 
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
@@ -30,6 +31,7 @@ const SiteHeader = () => {
     { label: "Upcoming", path: "/movies/upcoming" },
     { label: "Trending", path: "/movies/trending" },
   ];
+  
 
   const handleMenuSelect = (pageURL) => {
     setAnchorEl(null);
@@ -50,6 +52,9 @@ const SiteHeader = () => {
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             All you ever wanted to know about Movies!
           </Typography>
+          <Button color="outline" component={Link} to="/search">
+  Search
+</Button>
             {isMobile ? (
               <>
                 <IconButton

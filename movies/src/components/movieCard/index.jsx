@@ -19,7 +19,7 @@ import { MoviesContext } from "../../contexts/moviesContext";
 
 
 
-export default function MovieCard({ movie, action }) {
+export default function MovieCard({ movie, action = () => null }) {
   const { favorites, addToFavorites } = useContext(MoviesContext);
 
   if (favorites.find((id) => id === movie.id)) {
@@ -83,9 +83,7 @@ export default function MovieCard({ movie, action }) {
         </Grid>
       </CardContent>
             <CardActions disableSpacing>
-      
-        {action(movie)}
-      
+      {typeof action === "function" ? action(movie):null}
         <Link to={`/movies/${movie.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info
