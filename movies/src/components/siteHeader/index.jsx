@@ -45,7 +45,7 @@ const SiteHeader = () => {
 
   return (
     <>
-      <AppBar position="fixed" color="secondary">
+      <AppBar position="sticky" sx={{ background: "linear-gradient(90deg, #5a0b8f 0%, #7e3ff2 100%)", backdropFilter: "blur(6px)",boxShadow: "0 4px 12px rgba(0,0,0,0.25)",}}>
         <Toolbar>
           <Typography variant="h4" sx={{ flexGrow: 1 }}>
             Movie - Discovery 
@@ -53,10 +53,10 @@ const SiteHeader = () => {
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             All you ever wanted to know about Movies!
           </Typography>
-          <Button color="outline" component={Link} to="/search">
+          <Button variant="outlined" sx={{borderColor: "#30629bff",color: "#ffffffff","&:hover": {backgroundColor: "rgba(196, 185, 37, 0.15)",borderColor: "#5dd14eff",},}}component={Link} to="/search">
           <SearchIcon fontSize="primary" />
-  Search
-</Button>
+          Search
+          </Button>
             {isMobile ? (
               <>
                 <IconButton

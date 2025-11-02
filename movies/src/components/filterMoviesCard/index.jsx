@@ -37,7 +37,7 @@ export default function FilterMoviesCard(props) {
   }
   const genres = data.genres;
   if (genres[0].name !== "All"){
-    genres.unshift({ id: "0", name: "All" });
+    genres.unshift({ id: "0", name: "All" });   
   }
 
   const handleChange = (e, type, value) => {
@@ -57,25 +57,22 @@ export default function FilterMoviesCard(props) {
   };
 
   return (
-    <Card
+  <Card
   sx={{
+    p: 2,
     borderRadius: 3,
     boxShadow: 2,
-    transition: "all 0.25s ease-in-out",
-    cursor: "pointer",
-    "&:hover": {
-      transform: "translateY(-6px)",
-      boxShadow: 6,
-    },
-  }}
->
+    transition: "transform .25s ease, box-shadow .25s ease",
+    "&:hover": { transform: "translateY(-4px)", boxShadow: 5 },
+    }}
+    >
       <CardContent>
-        <Typography variant="h5" component="h1">
-          <SearchIcon fontSize="primary" />
+        <Typography variant="h6" component="h1" sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
+          <SearchIcon fontSize="large" />
           Filter the movies
-        </Typography>
+          </Typography>
           <TextField
-          sx={{...formControl}}
+          sx={{...formControl, mb:2}}
           id="filled-search"
           label="Search field"
           type="search"
@@ -83,7 +80,7 @@ export default function FilterMoviesCard(props) {
           value={props.titleFilter}
           onChange={handleTextChange}
     />
-        <FormControl sx={{...formControl}}>
+        <FormControl sx={{...formControl,mb:2}}>
           <InputLabel id="genre-label">Genre</InputLabel>
             <Select
             labelId="genre-label"
@@ -101,7 +98,7 @@ export default function FilterMoviesCard(props) {
             })}
           </Select>
         </FormControl>
-        <FormControl sx={{...formControl}}>
+        <FormControl sx={{...formControl, mb:2}}>
           <InputLabel id ="sort-by-year-label">Sort By Year</InputLabel>
           <Select 
           labelId="sort-by-year-label"

@@ -35,16 +35,20 @@ export default function MovieCard({ movie, action = () => null }) {
 
 
   return (
-    <Card
+<Card
   sx={{
-    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+    borderRadius: 3,
+    boxShadow: 2,
+    border: "1px solid rgba(255,255,255,0.06)",
+    transition: "transform .25s ease, box-shadow .25s ease, border-color .25s ease",
     "&:hover": {
-      transform: "scale(1.05)",
-      boxShadow: "0 8px 20px rgba(0,0,0,0.2)",
+      transform: "translateY(-6px) scale(1.03)",
+      boxShadow: "0 10px 28px rgba(0,0,0,.22)",
+      borderColor: "rgba(255,255,255,0.12)",
     },
   }}
 >
-            <CardHeader
+<CardHeader
         avatar={
           movie.favorite ? (
             <Avatar sx={{ backgroundColor: 'red' }}>
@@ -53,7 +57,7 @@ export default function MovieCard({ movie, action = () => null }) {
           ) : null
         }
         title={
-          <Typography variant="h5" component="p">
+          <Typography variant="h6" component="p" noWrap>
             {movie.title}{" "}
           </Typography>
         }
@@ -66,7 +70,7 @@ export default function MovieCard({ movie, action = () => null }) {
             : img
         }
       />
-      <CardContent>
+      <CardContent sx={{ background: "rgba(0,0,0,0.65)", color: "white", textAlign: "center", py: 1, borderBottomLeftRadius: 12, borderBottomRightRadius: 12,}}>
         <Grid container>
           <Grid size={{xs: 6}}>
             <Typography variant="h6" component="p">

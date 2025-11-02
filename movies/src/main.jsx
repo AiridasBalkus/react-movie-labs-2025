@@ -46,6 +46,12 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
+      <div
+      style={{
+      minHeight: "100vh",
+      background: "linear-gradient(180deg, #1e1e2f 30%, #121212 100%)",
+      color:"whitesmoke",
+    }}>
         <SiteHeader />
         <MoviesContextProvider>
           <Routes>
@@ -61,6 +67,7 @@ const App = () => {
             <Route path="*" element={ <Navigate to="/" /> } />
           </Routes>
         </MoviesContextProvider>
+        </div>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

@@ -28,13 +28,14 @@ const TemplateMoviePage = ({ movie, children }) => {
   return (
     <>
       <MovieHeader movie={movie} />
-
       <Grid container spacing={5} style={{ padding: "15px" }}>
-        <Grid size={{xs: 3}}>
-          <div sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "space-around",
+        <Grid size={{ xs: 3 }}>
+          <div
+          style={{
+            padding: 12,
+            borderRadius: 12,
+            background: "rgba(255,255,255,0.03)",
+            boxShadow: "0 2px 10px rgba(0,0,0,0.15)",
           }}>
             <ImageList
                 sx={{
@@ -53,9 +54,15 @@ const TemplateMoviePage = ({ movie, children }) => {
             </ImageList>
           </div>
         </Grid>
-
         <Grid size={{xs: 9}}>
+         <div
+         style={{
+          padding: 16,
+          borderRadius: 12,
+          background: "rgba(255,255,255,0.02)",
+        }}>
           {children}
+          </div>
         </Grid>
       </Grid>
     </>
