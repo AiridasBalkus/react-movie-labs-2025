@@ -24,7 +24,7 @@ const root = {
     flexWrap: "wrap",
     listStyle: "none",
     padding: 1.5,
-    margin: 0,
+    margin: 1,
 };
 const chip = { margin: 0.5 };
 
@@ -37,11 +37,10 @@ const { data: credits, isPending: creditsPending, isError: creditsError, error: 
   });
   return (
     <>
-      <Typography variant="h5" component="h3">
+      <Typography variant="h5" component="h3" mb={2}>
         Overview
       </Typography>
-
-      <Typography variant="h6" component="p">
+      <Typography variant="h6" component="p" mb={2}>
         {movie.overview}
       </Typography>
 
@@ -83,7 +82,7 @@ const { data: credits, isPending: creditsPending, isError: creditsError, error: 
           </li>
         ))}
       </Paper>
-  <Paper sx={{ ...root, p: 2 }}>
+  <Paper sx={{ ...root, p: 2, }}>
     <Chip label="Cast" sx={{ ...chip }} color="primary" />
     <Stack direction="row" spacing={2} sx={{ flexWrap: "wrap" }}>
       {credits?.cast?.slice(0, 12).map((c) => (
