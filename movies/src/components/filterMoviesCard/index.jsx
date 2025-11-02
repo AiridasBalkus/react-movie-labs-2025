@@ -45,12 +45,15 @@ export default function FilterMoviesCard(props) {
     props.onUserInput(type, value); 
   };
 
-  const handleTextChange = (e, props) => {
+  const handleTextChange = (e) => {
     handleChange(e, "name", e.target.value);
   };
 
   const handleGenreChange = (e) => {
     handleChange(e, "genre", e.target.value);
+  };
+  const handleSortYearChange = (e) =>{
+    handleChange (e, "sortYear", e.target.value);
   };
 
   return (
@@ -72,24 +75,23 @@ export default function FilterMoviesCard(props) {
           Filter the movies
         </Typography>
           <TextField
-      sx={{...formControl}}
-      id="filled-search"
-      label="Search field"
-      type="search"
-      variant="filled"
-      value={props.titleFilter}
-      onChange={handleTextChange}
+          sx={{...formControl}}
+          id="filled-search"
+          label="Search field"
+          type="search"
+          variant="filled"
+          value={props.titleFilter}
+          onChange={handleTextChange}
     />
         <FormControl sx={{...formControl}}>
           <InputLabel id="genre-label">Genre</InputLabel>
             <Select
-    labelId="genre-label"
-    id="genre-select"
-    defaultValue=""
-    value={props.genreFilter}
-    onChange={handleGenreChange}
+            labelId="genre-label"
+            id="genre-select"
+            defaultValue=""
+            value={props.genreFilter}
+            onChange={handleGenreChange}
   >
-
             {genres.map((genre) => {
               return (
                 <MenuItem key={genre.id} value={genre.id}>
@@ -97,6 +99,19 @@ export default function FilterMoviesCard(props) {
                 </MenuItem>
               );
             })}
+          </Select>
+        </FormControl>
+        <FormControl sx={{...formControl}}>
+          <InputLabel id ="sort-by-year-label">Sort By Year</InputLabel>
+          <Select 
+          labelId="sort-by-year-label"
+          id="sort-year-select"
+          value={props.sortYearFilter ?? "desc"}
+          label ="Sort by year"
+          onChange={handleSortYearChange}
+          >
+            <MenuItem value = "desc">Newest First</MenuItem>
+            <MenuItem value = "asc">Oldest First</MenuItem>
           </Select>
         </FormControl>
       </CardContent>
