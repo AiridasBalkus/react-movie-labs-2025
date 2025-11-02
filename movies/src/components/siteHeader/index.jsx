@@ -12,6 +12,7 @@ import { styled } from '@mui/material/styles';
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Link } from "react-router";
+import SearchIcon from "@mui/icons-material/Search";
 
 
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
@@ -53,6 +54,7 @@ const SiteHeader = () => {
             All you ever wanted to know about Movies!
           </Typography>
           <Button color="outline" component={Link} to="/search">
+          <SearchIcon fontSize="primary" />
   Search
 </Button>
             {isMobile ? (
